@@ -6,8 +6,9 @@
 		<script>
 $(function(){
 	$("a").click(function(){
-		$("img").attr("src",$(this).attr("href")).attr("alt",$(this).text());
-		return false;
+		$("img").attr("src",$(this).attr("href"))
+				.attr("alt",$(this).text());
+		return false; //매우중요한 부분,. 이벤트 안에서  this쓰면 이벤트 발생한 곳에서 적용. 
 	});
 });
 		</script>
@@ -23,3 +24,15 @@ $(function(){
 	
 	</body>
 </html>
+
+
+<!-- <script>
+$(function(){
+	$("a").click(function(){
+		$("img").attr("src",$(this).attr("href"))
+				.attr("alt",$(this).text());
+		return false; //매우 중요. 만약 플라워 누르면, this는 플라워 해당 앵커태그에 작동. 
+	})
+};
+
+</script> -->

@@ -6,8 +6,10 @@
 		<script>
 $(function(){
 	$("a").mouseup(function(){
-		$("img").attr("src",$(this).attr("href")).attr("alt",$(this).text());
-	}).click(function(){
+		$("img").attr("src",$(this).attr("href"))
+				.attr("alt",$(this).text());
+	})
+		.click(function(){
 		return false;
 	});
 });

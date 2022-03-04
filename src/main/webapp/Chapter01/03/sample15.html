@@ -6,9 +6,11 @@
 		<script>
 $(function(){
 	$("a").click(function(){
-		$("img").attr("src",$(this).attr("href")).attr("alt",$(this).text());
+		$("img").attr("src",$(this)
+				.attr("href"))
+				.attr("alt",$(this).text());
 		return false;
-	});
+	}); //레디펑션의 특성상 화면안에 있는 앵커만 처리. 새로 추가된 앵커태그에 대해서는 이벤트가 처리되지 않음.
 	$("button").click(function(){
 		$("ul").append("<li><a href='Building.jpg'>건물</a></li>");
 	});

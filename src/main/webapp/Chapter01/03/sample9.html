@@ -5,8 +5,10 @@
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script>
 $(function(){
-	$("a").mousedown(function(){
-		$("img").attr("src",$(this).attr("href")).attr("alt",$(this).text());
+	$("a").mousedown(function(){ //마우스 눌린시점에
+		$("img").attr("src",$(this).attr("href"))
+				.attr("alt",$(this).text());
+		
 	}).click(function(){
 		return false;
 	});

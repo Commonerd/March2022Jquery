@@ -5,10 +5,12 @@
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script>
 $(function(){
-	$("a").dblclick(function(){
-		$("img").attr("src",$(this).attr("href")).attr("alt",$(this).text());
-	}).click(function(){
-		return false;
+	$("a").dblclick(function(){ //더블클릭시 동작한다.
+		$("img").attr("src",$(this).attr("href"))
+				.attr("alt",$(this).text());
+	})
+		.click(function(){
+		return false; //한번클릭시 아무동작 안함.
 	});
 });
 		</script>
@@ -25,3 +27,16 @@ $(function(){
 	
 	</body>
 </html>
+<!-- 
+<script>
+$(function(){
+	$("a").dblclick(function(){//더블클릭시 소스에서 더클한곳 위치불러와서 이미지에 저장. 그리고 알트 텍스트 가져와서 저장. 
+		$("img").attr("src",$(this).attr("href"))
+				.attr("alt",$(this).text());
+	})
+			.click(function(){
+				return false; //한번클릭시 아무동작안함
+			})
+})
+
+</script> -->

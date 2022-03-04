@@ -6,11 +6,13 @@
 		<script>
 $(function(){
 	$("a").click(function(){
-		$("img").attr("src",$(this).attr("href")).attr("alt",$(this).text());
+		$("img").attr("src",$(this)
+				.attr("href"))
+				.attr("alt",$(this).text());
 		return false;
 	})
 	$("button").click(function(){
-		$("a").unbind("click");
+		$("a").unbind("click"); //unbind는 어떤태그에 걸어둔 이벤트를 취소.
 	});
 });
 		</script>

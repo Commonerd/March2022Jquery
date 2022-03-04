@@ -5,7 +5,7 @@
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script>
 $(function(){
-	$("img").mousemove(function(e){
+	$("img").mousemove(function(e){ //첫번째매개변수는 발생한이벤트. 커서가 움직일때마다 매번 이벤트발생
 		$("p").html("현재 X좌표："+e.clientX+"<br />현재 Y좌표："+e.clientY);
 	});
 });

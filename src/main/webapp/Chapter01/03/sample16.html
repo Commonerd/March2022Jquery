@@ -6,8 +6,11 @@
 		<script>
 
 $(function(){
-	$(document).on("click","a",function(){
-		$("img").attr("src",$(this).attr("href")).attr("alt",$(this).text());
+	$(document).on("click","a",function(){ 
+		//on을 쓰는 이유. 로딩이 끝난 후, 
+		//새로 추가된 태그에도 이벤트를 처리해야 하는 경우.
+		$("img").attr("src",$(this).attr("href"))
+				.attr("alt",$(this).text());
 		return false;
 	});
 	$("button").click(function(){
