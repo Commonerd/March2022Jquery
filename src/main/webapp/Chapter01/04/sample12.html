@@ -7,7 +7,10 @@
 $(function(){
 	$(":radio").click(function(){
 		$("label").css("font-weight","");
-		$("label[for='"+$(this).attr("id")+"']").css("font-weight","bold");
+		$("label[for='"+$(this).attr("id")+"']") 
+		//레이블중에서 for 속성이 이러한 값을 가지고 있는 애. 
+		//디스는 클릭이벤트 한 라디오 버튼
+		.css("font-weight","bold");
 	});
 	$("label").click(function(){
 		$("label").css("font-weight","");

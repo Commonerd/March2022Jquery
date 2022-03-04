@@ -6,7 +6,9 @@
 		<script>
 $(function(){
 	$("button").click(function(){
-		$(":checkbox").attr("checked","checked");
+		$(":checkbox").prop("checked",true);
+		// $(":checkbox").attr("checked","checked"); => 일부체크해제하고, 다시 전부체크 누르면 작동안됨.
+
 	});
 });
 

@@ -23,9 +23,10 @@ dl dd{
 $(function(){
 	$("dt").click(function(){
 		if($("dd").css("display")=="block"){
-			$("dd:not(:animated)").slideUp("slow");
+			$("dd:not(:animated)").slideUp("slow"); //끝까지 올라가면 none으로 바뀜.
 		}else{
-			$("dd").slideDown("slow");
+			$("dd").slideDown("slow"); //dd태그가 원래 블럭.
+			// 그래서 블럭으로 바뀌고 길이가 늘어난다. show랑 hide도 마찬가지.
 		}
 	});
 });

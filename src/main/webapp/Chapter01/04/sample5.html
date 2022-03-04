@@ -5,19 +5,26 @@
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script>
 $(function(){
-	$("input").val("입력해 주세요").css("color","#CCC").one("focus",function(){
+	$("input").val("입력해 주세요")
+	.css("color","#CCC")
+	.one("focus",function(){
 		$(this).val("").css("color","#000");
-	}).blur(function(){
+	}) //one-focus
+.blur(function(){ //포커스가 빠져나오면, 블러이벤트가 발생한 태그에 밸류값을 가져온다. 
+				//그 값이 빈문자열과 같다면, 입력해주세요라고 회색글씨로 추가
 		if($(this).val()==""){
-			$(this).val("입력해 주세요").css("color","#CCC").one("focus",function(){
+			$(this).val("입력해 주세요")
+			.css("color","#CCC")
+			.one("focus",function(){
 				$(this).val("").css("color","#000");
-			});
-		}
-	});
-});
+			}); //one
+		} //if
+	}); //blur
+}); //ready
 		</script>
 	</head>
 	<body>
 		이름：<input type="text" value="" />
 	</body>
 </html>
+

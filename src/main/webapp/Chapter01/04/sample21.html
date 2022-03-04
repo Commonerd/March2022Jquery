@@ -7,9 +7,9 @@
 $(function(){
 	$("select").change(function(){
 	if($(":selected").attr("value")=="10 대"){
-		$("input").attr("disabled", "disabled");
+		$("input").attr("disabled", "disabled"); //disabled 속성, disabled 값 
 	}else{
-		$("input").removeAttr("disabled");
+		$("input").removeAttr("disabled"); //비활성화를 제거하니 활성화
 	}
 	});
 });

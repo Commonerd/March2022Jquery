@@ -8,7 +8,8 @@ $(function(){
 	$(":radio").change(function(){
 		$("label").css("font-weight","");
 		$("label[for='"+$(this).attr("id")+"']").css("font-weight","bold");
-	});
+	}); //laber for에서 label다음의 대괄호는 속성이기 때문에 반드시 붙여줘야 한다.
+		// 따옴표를 잘 써줘야 한다.
 });
 
 		</script>
