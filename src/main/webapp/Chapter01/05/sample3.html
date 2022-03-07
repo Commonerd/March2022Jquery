@@ -11,7 +11,10 @@ $(function(){
 		success : function(data){
 			$("item",data).each(function(){
 				$("dl").append("<dt><a href='"+$("link",this).text()+"'>"+$("title",this).text()+"</a></dt><dd>"+$("description",this).text()+"</dd>");
-			});
+			}); //첫번째 아이템을 꺼내온다음에, 그다음부터 this로 받는다. 
+			//아이템 태그 안에 있는 링크 태그를 찾고, 링크태그의 텍스트를 꺼내와서, ㅎ하이퍼링크 속성에 집어넣어주고 있따.
+			//앵커태그의 시작태그랑 종료태그 사이에 타이틀 자식태그 찾고, 그 안에 있는 텍스트 내용 꺼내오라는 의미.
+			//두번째 아이탬 꺼내와서 반복.
 		}
 	});
 });

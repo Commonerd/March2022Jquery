@@ -10,12 +10,12 @@
 			$.getJSON("./sample5_load.json", function(result) {
 				     // $("div").append(result.employees[0].firstName + " ");
 				      $.each(result.employees, function(i, field){
-							// i: 객체의 갯수, field: key값
-						      $("div").append(field.firstName + " ");
+							// i: index, field: 인덱스에 있는 값
+						      $("div").append(i+" "+field.firstName+" "+field.lastName + "<br>");
 						    });
 			});
-		});
-	});
+		}); //click
+	}); //
 </script>
 </head>
 <body>
