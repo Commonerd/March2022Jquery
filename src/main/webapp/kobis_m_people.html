@@ -5,7 +5,49 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-			$(function() {
+	
+
+		$(function(){
+		//버튼의 클릭 이벤트
+		$("#mybtn").click(function(){
+			let name = $("#name").val();
+			if(!name) {
+				alert("이름을 입력하세요");
+				return false;
+			}
+			
+			let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=f5eef3421c602c6cb7ea224104795888&peopleNm="+name
+			
+					$.getJSON(url, function(data) {
+						let peopleList = data.peopleListResult.peopleList;
+						$("div").empty();
+						for(let i in peopleList){
+							$("div").append("<span id='"+peopleList[i].peopleCd+"'>"+ peopleList[i].peopleNm+" / "+peopleList[i].repRoleNm+"</span><hr>");
+							}
+					});
+		
+		}); //button click 
+		
+	//새로생긴 원하는 사람의 span태그를 클릭했을때 아작스 실행
+	$("#people_list").on("click","span",function(){
+		let s = $(this); //클릭이벤트가 발생한 스팬태그를 s에 저장한다.
+		let peopleCd = $(this).attr("id");
+		let url ="http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleInfo.json?key=f5eef3421c602c6cb7ea224104795888&peopleCd="+peopleCd
+		let f_str =""; //이건 뭐지?
+		$.getJSON(url, function(data){
+			let fimosList = data.peopleInfoResult.peopleInfo.filmos;
+			for(i in fimosList){
+				if(i == (fimosList.length-1)){ // 마지막 영화 필모의 쉼표는 있으면 안된다.마지막 인덱스값은 렁스-1이다.
+					f_str += fimosList[i]+movieNm;
+				}else { 
+					f_str += fimosList[i].movieNm +", ";}
+				}
+				s.after("<div>"+f_str+"</div>");
+			})
+		}); //span click
+		}); //ready
+	
+/*  		 	$(function() {
 				// 버튼의 클릭 이벤트
 				$("#mybtn").click(function() {
 					let name = $("#name").val();
@@ -42,7 +84,7 @@
 						s.after("<div>"+f_str+"</div>");
 					})			
 				});//span click
-			});//ready
+			});//ready  */
 		</script>
 
 </head>
