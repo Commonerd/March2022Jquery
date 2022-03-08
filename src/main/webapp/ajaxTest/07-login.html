@@ -70,8 +70,8 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-                width: 100%;
-                height: 100%;
+                width: 100%; /* //부모크기만큼의 크기를 가짐 */
+                height: 100%; /* //부모크만큼의 크기를 가짐 즉 덮음 */
                 /** 배경색상 투명도는 CSS3 속성이므로, IE8이하는 표시되지 않습니다. */
                 background-color: rgba(0, 0, 0, 0.3);
                 display: none;
@@ -82,8 +82,8 @@
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                margin-left: -5px;
-                margin-top: -5px;
+                margin-left: -10px;
+                margin-top: -10	px;
             }
         </style>
 
@@ -124,19 +124,20 @@
 
                    
                     /** 로그인처리에 대한 JSP예시 */
-                    var url = "ajax/login/login.jsp";
+                    let url = "ajax/login/login.jsp";
 
                     // $(this).serialize()
-                    //user_name=아이디입력값&user_password=비밀번호입력값
+                    // form에 입력한 값을 쿼리문자열( name속성=입력값&name속성=입력값...)로 만들어준다.
+                    // user_name=아이디입력값&user_password=비밀번호입력값
                     
-                    /*** ajax 로그인처리 ***/
-                    var ajax = $.post(url, $(this).serialize(), function(data) {
+                    /*** ajax 로그인처리 ***/  
+                    let ajax = $.post(url, $(this).serialize(), function(data) {
                         // XML에서 result태그와 message태그의 내용 추출
-                        var result = $(data).find("result").text();
-                        var message = $(data).find("message").text();
+                        let result = $(data).find("result").text();
+                        let message = $(data).find("message").text();
 
                         // result값은 boolean형으로 변환.
-                        var result_value = eval(result);
+                        let result_value = eval(result);
 
                         // 결과메시지 출력
                         alert(message);
@@ -154,8 +155,8 @@
                     });
 
                     return false;
-                });
-            });
+                });//submit
+            });//ready
         </script>
     </head>
     <body>

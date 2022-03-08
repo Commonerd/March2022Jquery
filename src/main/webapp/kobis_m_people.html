@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+			$(function() {
+				// 버튼의 클릭 이벤트
+				$("#mybtn").click(function() {
+					let name = $("#name").val();
+
+					if(!name){
+						alert("이름을 입력하세요");
+						return false;
+					}
+					
+					let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=f5eef3421c602c6cb7ea224104795888&peopleNm="+name
+					
+				 	$.getJSON(url, function(data) {
+				 		let peopleList = data.peopleListResult.peopleList;
+				 		$("div").empty();
+				 		for(let i in peopleList){
+				 			$("div").append("<span id='"+peopleList[i].peopleCd+"'>"+ peopleList[i].peopleNm+" / "+peopleList[i].repRoleNm+"</span><hr>");
+				 			}
+						});	
+				});//button click
+				//(새로 생긴!!!) 원하는 사람의 span태그를 클릭했을때!! ajax 실행
+				$("#people_list").on("click","span",function(){
+					let s = $(this);
+					let peopleCd = $(this).attr("id");
+					let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleInfo.json?key=f5eef3421c602c6cb7ea224104795888&peopleCd="+peopleCd
+					let f_str = "";
+					$.getJSON(url, function(data){
+						let fimosList = data.peopleInfoResult.peopleInfo.filmos;
+						for(i in fimosList){
+							if(i == (fimosList.length-1)){
+								f_str += fimosList[i].movieNm;
+							}else{
+							f_str += fimosList[i].movieNm + ", ";}
+						}
+						s.after("<div>"+f_str+"</div>");
+					})			
+				});//span click
+			});//ready
+		</script>
+
+</head>
+<body>
+<input type="text" id="name"><button id="mybtn">확인</button>
+<div id="people_list"><br>
+</div>
+</body>
+</html>
